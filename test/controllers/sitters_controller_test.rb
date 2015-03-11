@@ -18,24 +18,6 @@ class SittersControllerTest < ActionController::TestCase
 
   test "should create sitter" do
     assert_difference('Sitter.count') do
-      post :create, sitter: { name: @sitter.name, phone: @sitter.phone }
-    end
-
-    assert_redirected_to sitter_path(assigns(:sitter))
-  end
-
-  test "should show sitter" do
-    get :show, id: @sitter
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @sitter
-    assert_response :success
-  end
-
-  test "should update sitter" do
-    patch :update, id: @sitter, sitter: { name: @sitter.name, phone: @sitter.phone }
     assert_redirected_to sitter_path(assigns(:sitter))
   end
 

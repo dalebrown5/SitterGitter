@@ -6,10 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :list_items
   has_many :sitters, through: :list_items
-  
 
   def list
     list_items
   end
-
 end

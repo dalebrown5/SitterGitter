@@ -18,24 +18,6 @@ class ListItemsControllerTest < ActionController::TestCase
 
   test "should create list_item" do
     assert_difference('ListItem.count') do
-      post :create, list_item: {  }
-    end
-
-    assert_redirected_to list_item_path(assigns(:list_item))
-  end
-
-  test "should show list_item" do
-    get :show, id: @list_item
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @list_item
-    assert_response :success
-  end
-
-  test "should update list_item" do
-    patch :update, id: @list_item, list_item: {  }
     assert_redirected_to list_item_path(assigns(:list_item))
   end
 

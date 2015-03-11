@@ -69,6 +69,6 @@ class ListItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_item_params
-      params[:list_item]
+      params.require(:list_item).permit(:references)
     end
 end

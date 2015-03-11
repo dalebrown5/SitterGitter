@@ -13,5 +13,4 @@ dale.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"
-# puts "#{Topic.count} lists created"
-# puts "#{Bookmark.count} items created"
+
