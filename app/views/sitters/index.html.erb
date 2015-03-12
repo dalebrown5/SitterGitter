@@ -2,11 +2,14 @@
 
 <h1>My Sitters</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th>Select</th>
       <th>Name</th>
       <th>Phone</th>
+      <th>Edit</th>
+      <th>Remove</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,10 +17,15 @@
   <tbody>
     <% @sitters.each do |sitter| %>
       <tr>
+        <td><span class="glyphicon glyphicon-ok-circle"></span></td>
         <td><%= sitter.name %></td>
         <td><%= sitter.phone %></td>
-        <td><%= link_to 'Edit', edit_sitter_path(sitter) %></td>
-        <td><%= link_to 'Remove', sitter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to edit_sitter_path(sitter) do %>
+        <span class="glyphicon glyphicon-pencil"></span></td>
+        <% end %>
+        <td><%= link_to sitter, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
