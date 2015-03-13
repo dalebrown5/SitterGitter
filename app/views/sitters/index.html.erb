@@ -24,10 +24,10 @@
         <td><%= sitter.user.id %></td>
         <td><%= sitter.name %></td>
         <td><%= sitter.phone %></td>
-        <td><%= link_to edit_sitter_path(sitter) do %>
+        <td><%= link_to edit_sitter_path(sitter), class: 'btn btn-warning' do %>
         <span class="glyphicon glyphicon-pencil"></span></td>
         <% end %>
-        <td><%= link_to sitter, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to sitter, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
         <span class="glyphicon glyphicon-trash"></span></td>
         <% end %>
       </tr>
@@ -35,8 +35,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Sitter', new_sitter_path %>
 
 
