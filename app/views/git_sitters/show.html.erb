@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>When:</strong>
+  <%= @git_sitter.when %>
+</p>
+
+<p>
+  <strong>How long:</strong>
+  <%= @git_sitter.how_long %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @git_sitter.message %>
+</p>
+
+<%= link_to 'Edit', edit_git_sitter_path(@git_sitter) %> |
+<%= link_to 'Back', git_sitters_path %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :git_sitters
+
   devise_for :users
    
   resources :list_items

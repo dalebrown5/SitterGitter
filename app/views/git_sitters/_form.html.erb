@@ -1,0 +1,29 @@
+<%= form_for(@git_sitter) do |f| %>
+  <% if @git_sitter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@git_sitter.errors.count, "error") %> prohibited this git_sitter from being saved:</h2>
+
+      <ul>
+      <% @git_sitter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :when %><br>
+    <%= f.datetime_select :when %>
+  </div>
+  <div class="field">
+    <%= f.label :how_long %><br>
+    <%= f.text_field :how_long %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

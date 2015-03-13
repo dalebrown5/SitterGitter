@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :list_items
   has_many :sitter_selections, dependent: :destroy
-  has_many :sitters, through: :list_items
+  has_many :sitters
 
   def list
     list_items
@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   def sitter_selected(sitter)
     sitter_selections.where(sitter_id: sitter.id).first
+  end
+
+  def selected_sitters
+    self.sitter_selections.collect(&:sitter)
   end
 
 end

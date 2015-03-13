@@ -4,7 +4,9 @@ class SittersController < ApplicationController
   # GET /sitters
   # GET /sitters.json
   def index
-    @sitters = Sitter.all
+    # raise current_user.sitters.inspect
+    # @sitters = Sitter.all
+    @sitters = current_user.sitters
   end
 
   # GET /sitters/1
@@ -25,6 +27,7 @@ class SittersController < ApplicationController
   # POST /sitters.json
   def create
     @sitter = Sitter.new(sitter_params)
+    # raise current_user.inspect
     @sitter.user = current_user
 
     respond_to do |format|

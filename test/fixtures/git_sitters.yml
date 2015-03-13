@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  when: 2015-03-13 09:29:15
+  how_long: MyString
+  message: MyText
+
+two:
+  when: 2015-03-13 09:29:15
+  how_long: MyString
+  message: MyText

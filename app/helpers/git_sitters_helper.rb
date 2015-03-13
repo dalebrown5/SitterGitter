@@ -1,0 +1,2 @@
+module GitSittersHelper
+end
