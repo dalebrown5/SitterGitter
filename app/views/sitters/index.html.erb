@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Select</th>
+      <th>Sitter id</th>
+      <th>User id</th>
       <th>Name</th>
       <th>Phone</th>
       <th>Edit</th>
@@ -17,7 +19,9 @@
   <tbody>
     <% @sitters.each do |sitter| %>
       <tr>
-        <td><span class="glyphicon glyphicon-ok-circle"></span></td>
+        <td><%= render partial: 'sitter_selections/sitter_selection', locals: { sitter: sitter } %></td>
+        <td><%= sitter.id %></td>
+        <td><%= sitter.user.id %></td>
         <td><%= sitter.name %></td>
         <td><%= sitter.phone %></td>
         <td><%= link_to edit_sitter_path(sitter) do %>
@@ -34,3 +38,5 @@
 <br>
 
 <%= link_to 'New Sitter', new_sitter_path %>
+
+

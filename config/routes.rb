@@ -4,7 +4,9 @@ Rails.application.routes.draw do
    
   resources :list_items
 
-  resources :sitters
+  resources :sitters do
+    resources :sitter_selections, only: [:create, :destroy]
+  end
   
   get 'about' => 'welcome#about' 
 

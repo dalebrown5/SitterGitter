@@ -6,5 +6,7 @@ class CreateListItems < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+      add_foreign_key :list_items, :users
+      add_foreign_key :list_items, :sitters
   end
 end

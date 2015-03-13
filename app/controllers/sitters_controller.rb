@@ -24,12 +24,12 @@ class SittersController < ApplicationController
   # POST /sitters
   # POST /sitters.json
   def create
-    @user = current_user.id
     @sitter = Sitter.new(sitter_params)
+    @sitter.user = current_user
 
     respond_to do |format|
       if @sitter.save
-        format.html { redirect_to sitters_url, notice: 'New sitter was created.' }
+        format.html { redirect_to sitters_url }
         format.json { render :show, status: :created, location: @sitter }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SittersController < ApplicationController
   def update
     respond_to do |format|
       if @sitter.update(sitter_params)
-        format.html { redirect_to sitters_url, notice: 'Sitter was updated.' }
+        format.html { redirect_to sitters_url }
         format.json { render :show, status: :ok, location: @sitter }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SittersController < ApplicationController
   def destroy
     @sitter.destroy
     respond_to do |format|
-      format.html { redirect_to sitters_url, notice: 'Sitter was removed.' }
+      format.html { redirect_to sitters_url }
       format.json { head :no_content }
     end
   end

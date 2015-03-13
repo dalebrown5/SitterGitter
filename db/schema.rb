@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312021528) do
+ActiveRecord::Schema.define(version: 20150312160224) do
 
   create_table "list_items", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,12 +20,22 @@ ActiveRecord::Schema.define(version: 20150312021528) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sitter_selections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "sitter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sitter_selections", ["sitter_id"], name: "index_sitter_selections_on_sitter_id"
+  add_index "sitter_selections", ["user_id"], name: "index_sitter_selections_on_user_id"
+
   create_table "sitters", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

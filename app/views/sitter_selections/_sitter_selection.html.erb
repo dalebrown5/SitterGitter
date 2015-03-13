@@ -1,0 +1,11 @@
+<div class="sitter_selection">
+    <% if sitter_selection = current_user.sitter_selected(sitter) %>
+        <%= link_to [sitter, sitter_selection], class: 'btn btn-danger', method: :delete do %>
+          <i class="glyphicon glyphicon-remove"> </i>&nbsp;
+        <% end %>
+      <% else %>
+         <%= link_to [sitter, SitterSelection.new], class: 'btn btn-success', method: :post do %>
+          <i class="glyphicon glyphicon-ok"> </i>&nbsp;
+      <% end %>
+    <% end %>
+  </div>
