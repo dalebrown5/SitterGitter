@@ -14,4 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require bootstrap-datetimepicker.min
 //= require_tree .
+
+$(function() {
+ $(".form_datetime").datetimepicker({
+        //     format: "MM dd - H:ii P",
+        //     showMeridian: true,
+        //     todayBtn: true,
+        //     minuteStep: 15,
+        //     autoclose: true,
+        //     pickerPosition: "bottom-left"
+        // });
+});

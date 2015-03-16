@@ -2,7 +2,7 @@
 
 <h1>My Sitter Requests</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>GitSitter id</th>
@@ -23,8 +23,12 @@
         <td><%= git_sitter.how_long %></td>
         <td><%= git_sitter.message %></td>
         <td><%= link_to 'Show', git_sitter %></td>
-        <td><%= link_to 'Edit', edit_git_sitter_path(git_sitter) %></td>
-        <td><%= link_to 'Destroy', git_sitter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to edit_git_sitter_path(git_sitter), class: 'btn btn-warning' do %>
+        <span class="glyphicon glyphicon-pencil"></span></td>
+        <% end %>
+        <td><%= link_to git_sitter, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

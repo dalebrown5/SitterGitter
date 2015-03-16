@@ -13,8 +13,20 @@
 
   <div class="field">
     <%= f.label :when %><br>
-    <%= f.datetime_select :when %>
+    <input size="16" type="text" name="git_sitter[when]" id="git_sitter_when" readonly class="form_datetime">
+    <span class="add-on"><i class="icon-calendar"></i></span>
   </div>
+      <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            format: "MM dd - H:ii P",
+            showMeridian: true,
+            todayBtn: true,
+            minuteStep: 15,
+            autoclose: true,
+            startDate: "2015-03-15 0:00",
+            pickerPosition: "bottom-left"
+        });
+      </script>  
   <div class="field">
     <%= f.label :how_long %><br>
     <%= f.text_field :how_long %>

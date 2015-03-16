@@ -4,7 +4,7 @@ class GitSittersController < ApplicationController
   # GET /git_sitters
   # GET /git_sitters.json
   def index
-    @git_sitters = GitSitter.all
+    @git_sitters = current_user.git_sitters
   end
 
   # GET /git_sitters/1
@@ -25,9 +25,10 @@ class GitSittersController < ApplicationController
   # POST /git_sitters.json
   def create
     @git_sitter = GitSitter.new(git_sitter_params)
-    # @git_sitter.user = current_user
+    @git_sitter.user = current_user
 
     current_user.selected_sitters.each do |sitter|
+      puts ">>>> #{sitter.inspect} <<<<"
       # send message to sitter
       # create GitSitterSelection record
     end

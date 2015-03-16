@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :list_items
+  has_many :list_items, dependent: :destroy
   has_many :sitter_selections, dependent: :destroy
-  has_many :sitters
+  has_many :sitters, dependent: :destroy
+  has_many :git_sitters, dependent: :destroy
 
   def list
     list_items

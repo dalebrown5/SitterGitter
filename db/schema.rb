@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(version: 20150313152915) do
     t.string   "how_long"
     t.text     "message"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sitter_selection_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
+
+  add_index "git_sitters", ["sitter_selection_id"], name: "index_git_sitters_on_sitter_selection_id"
+  add_index "git_sitters", ["user_id"], name: "index_git_sitters_on_user_id"
 
   create_table "list_items", force: :cascade do |t|
     t.integer  "user_id"

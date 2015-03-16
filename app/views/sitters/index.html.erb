@@ -21,7 +21,7 @@
       <tr>
         <td><%= render partial: 'sitter_selections/sitter_selection', locals: { sitter: sitter } %></td>
         <td><%= sitter.id %></td>
-        <td><%= sitter.user.id %></td>
+        <td><%= sitter.user_id %></td>
         <td><%= sitter.name %></td>
         <td><%= sitter.phone %></td>
         <td><%= link_to edit_sitter_path(sitter), class: 'btn btn-warning' do %>
