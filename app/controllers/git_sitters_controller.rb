@@ -35,11 +35,11 @@ class GitSittersController < ApplicationController
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     current_user.selected_sitters.each do |sitter|
-      puts ">>>> #{sitter.inspect} <<<<"
+      puts ">>>> #{sitter.phone.inspect} <<<<"
 
       @client.messages.create(
-        from: '+13852442825',
-        to: '+18016289376',
+        from: '385-244-2825',
+        to: sitter.phone,
         body: @git_sitter.message
       )
       # send message to sitter
