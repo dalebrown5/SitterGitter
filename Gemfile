@@ -36,6 +36,8 @@ gem 'bootstrap-sass', '3.2.0.2'
 
 gem 'figaro', '~> 1.1.0'
 
+gem 'twilio-ruby', '~> 3.12'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,41 +1,47 @@
-<%= form_for(@git_sitter) do |f| %>
-  <% if @git_sitter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@git_sitter.errors.count, "error") %> prohibited this git_sitter from being saved:</h2>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(@git_sitter) do |f| %>
+      <% if @git_sitter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@git_sitter.errors.count, "error") %> prohibited this git_sitter from being saved:</h2>
 
-      <ul>
-      <% @git_sitter.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @git_sitter.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :when %><br>
-    <input size="16" type="text" name="git_sitter[when]" id="git_sitter_when" readonly class="form_datetime">
-    <span class="add-on"><i class="icon-calendar"></i></span>
-  </div>
-      <script type="text/javascript">
-        $(".form_datetime").datetimepicker({
-            format: "MM dd - H:ii P",
-            showMeridian: true,
-            todayBtn: true,
-            minuteStep: 15,
-            autoclose: true,
-            startDate: "2015-03-15 0:00",
-            pickerPosition: "bottom-left"
-        });
-      </script>  
-  <div class="field">
-    <%= f.label :how_long %><br>
-    <%= f.text_field :how_long %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <form>
+        <div class="form-group">
+          <%= f.label :when %><br>
+          <input size="16" type="text" name="git_sitter[when]" id="git_sitter_when" readonly class="form_datetime">
+          <span class="add-on"><i class="glyphicon glyphicon-calendar"></i></span>
+        </div>
+            <script type="text/javascript">
+              $(".form_datetime").datetimepicker({
+                  format: "MM dd - H:ii P",
+                  showMeridian: true,
+                  // todayBtn: true,
+                  minuteStep: 15,
+                  autoclose: true,
+                  startDate: "2015-01-01 0:00",
+                  pickerPosition: "bottom-left"
+              });
+            </script>  
+        <div class="form-group">
+          <%= f.label :how_long %><br>
+          <%= f.text_field :how_long, placeholder: "Hours needed" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :message %><br>
+          <%= f.text_area :message %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Send Sitter Messages", class: 'btn btn-success'  %>
+    </div>
+  </form>
 <% end %>
+</div>
+</div>
