@@ -1,4 +1,7 @@
+require 'twilio-ruby'
+
 class GitSittersController < ApplicationController
+
   before_action :set_git_sitter, only: [:show, :edit, :update, :destroy]
 
   # GET /git_sitters
@@ -27,8 +30,18 @@ class GitSittersController < ApplicationController
     @git_sitter = GitSitter.new(git_sitter_params)
     @git_sitter.user = current_user
 
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+
+    @client = Twilio::REST::Client.new account_sid, auth_token
     current_user.selected_sitters.each do |sitter|
       puts ">>>> #{sitter.inspect} <<<<"
+
+      @client.messages.create(
+        from: '+13852442825',
+        to: '+18016289376',
+        body: @git_sitter.message
+      )
       # send message to sitter
       # create GitSitterSelection record
     end
