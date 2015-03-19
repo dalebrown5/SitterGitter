@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     sitters_path
   end
+
+  protected
  
-   protected
- 
-   def configure_permitted_parameters
-     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :phone, :email, :password)}
-     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :phone, :email, :password)}
-   end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :phone, :email, :password)}
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :phone, :email, :password)}
+  end
 end
 

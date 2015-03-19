@@ -35,18 +35,16 @@ class GitSittersController < ApplicationController
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     current_user.selected_sitters.each do |sitter|
-      puts ">>>> #{sitter.phone.inspect} <<<<"
 
       @client.messages.create(
         from: '385-244-2825',
         to: sitter.phone,
-        body: "Hi this is #{@git_sitter.user.name}. I'm in need of babysitter, #{@git_sitter.when}, for #{@git_sitter.how_long} hours.
+        body: "-
+Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for #{@git_sitter.how_long} hours.
 
 #{@git_sitter.message}
 
-Please reply back with the number one if you're available or with number two if you're unavailable. If you respond as available, I will reply back with you to confirm.
-         
-If you have a question, please text or call me at #{@git_sitter.user.phone}.  
+Please text or call back to #{@git_sitter.user.phone} and let me know if you would be available.
 
 Thank you!
 
