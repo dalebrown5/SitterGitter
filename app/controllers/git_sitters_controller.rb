@@ -40,10 +40,20 @@ class GitSittersController < ApplicationController
       @client.messages.create(
         from: '385-244-2825',
         to: sitter.phone,
-        body: @git_sitter.message
+        body: "Hi this is #{@git_sitter.user.name}. I'm in need of babysitter, #{@git_sitter.when}, for #{@git_sitter.how_long} hours.
+
+#{@git_sitter.message}
+
+Please reply back with the number one if you're available or with number two if you're unavailable. If you respond as available, I will reply back with you to confirm.
+         
+If you have a question, please text or call me at #{@git_sitter.user.phone}.  
+
+Thank you!
+
+Powered by Sitter Gitter https://db5-sittergitter.herokuapp.com/"
+
       )
-      # send message to sitter
-      # create GitSitterSelection record
+
     end
 
     respond_to do |format|
