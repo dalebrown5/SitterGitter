@@ -7,6 +7,7 @@ class SittersController < ApplicationController
     # raise current_user.sitters.inspect
     # @sitters = Sitter.all
     @sitters = current_user.sitters
+    @sitter = Sitter.new
   end
 
   # GET /sitters/1

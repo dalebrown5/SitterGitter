@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    
   resources :list_items
 
-  resources :sitters do
+  resources :sitters, except: [:new] do
     resources :sitter_selections, only: [:create, :destroy]
   end
   
