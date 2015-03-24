@@ -7,11 +7,10 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Date & Time</th>
+          <th>Date / Time</th>
           <th>Hours</th>
           <th>Message</th>
           <th>Details</th>
-          <th>Delete</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -24,9 +23,6 @@
             <td><%= git_sitter.message %></td>
             <td><%= link_to git_sitter, class: 'btn btn-success' do %>
             <span class="glyphicon glyphicon-search"></span></td>
-            <% end %>
-            <td><%= link_to git_sitter, class: 'btn btn-danger', method: :delete do %>
-            <span class="glyphicon glyphicon-trash"></span></td>
             <% end %>
           </tr>
         <% end %>

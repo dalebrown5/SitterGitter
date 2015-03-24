@@ -13,7 +13,7 @@
           <th>Name</th>
           <th>Phone</th>
           <th>Edit</th>
-          <th>Remove</th>
+         
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -27,9 +27,7 @@
             <td><%= link_to edit_sitter_path(sitter), class: 'btn btn-warning' do %>
             <span class="glyphicon glyphicon-pencil"></span></td>
             <% end %>
-            <td><%= link_to sitter, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span></td>
-            <% end %>
+
           </tr>
         <% end %>
       </tbody>

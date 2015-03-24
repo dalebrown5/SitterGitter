@@ -40,7 +40,7 @@ class GitSittersController < ApplicationController
         from: '385-244-2825',
         to: sitter.phone,
         body: "-
-Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for #{@git_sitter.how_long} hours.
+Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for about #{@git_sitter.how_long} hours.
 
 #{@git_sitter.message}
 
@@ -48,7 +48,8 @@ Please text or call back to #{@git_sitter.user.phone} and let me know if you wou
 
 Thank you!
 
-Powered by Sitter Gitter https://db5-sittergitter.herokuapp.com/"
+Powered by Sitter Gitter 
+https://db5-sittergitter.herokuapp.com/"
 
       )
 

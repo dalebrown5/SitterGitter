@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<h1>Sitter Request</h1>
+<div class="row">
+  <div class="col-md-6">
 
-<p>
-  <strong>When:</strong>
-  <%= @git_sitter.when %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>How long:</strong>
-  <%= @git_sitter.how_long %>
-</p>
+    <p>
+      <strong>When:</strong>
+      <%= @git_sitter.when %>
+    </p>
 
-<p>
-  <strong>Message:</strong>
-  <%= @git_sitter.message %>
-</p>
+    <p>
+      <strong>How long:</strong>
+      <%= @git_sitter.how_long %>
+    </p>
 
-<%= link_to 'Edit', edit_git_sitter_path(@git_sitter) %> |
-<%= link_to 'Back', git_sitters_path %>
+    <p>
+      <strong>Message:</strong>
+      <%= @git_sitter.message %>
+    </p>
+     
+    <br> 
+    <%= link_to 'Back', git_sitters_path, class: 'btn btn-primary' %>
+    <%= link_to 'Remove', @git_sitter, class: 'btn btn-danger', method: :delete %>
+  </div>
+</div>

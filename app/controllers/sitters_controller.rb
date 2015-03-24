@@ -22,6 +22,7 @@ class SittersController < ApplicationController
 
   # GET /sitters/1/edit
   def edit
+    @sitter = Sitter.find(params[:id])
   end
 
   # POST /sitters
