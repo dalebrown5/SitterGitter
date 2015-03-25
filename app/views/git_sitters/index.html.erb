@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>My Sitter Requests</h1>
 
 <div class="row">
@@ -9,7 +7,7 @@
         <tr>
           <th>Date / Time</th>
           <th>Hours</th>
-          <th>Message</th>
+          <th>Recipients</th>
           <th>Details</th>
           <th colspan="3"></th>
         </tr>
@@ -20,7 +18,9 @@
           <tr>
             <td><%= git_sitter.when %></td>
             <td><%= git_sitter.how_long %></td>
-            <td><%= git_sitter.message %></td>
+            <td>
+              <%= git_sitter.git_sitter_selections.collect(&:sitter).collect(&:name) .join(', ') %>
+            </td>
             <td><%= link_to git_sitter, class: 'btn btn-success' do %>
             <span class="glyphicon glyphicon-search"></span></td>
             <% end %>

@@ -1,6 +1,6 @@
 class GitSitter < ActiveRecord::Base
 
   belongs_to :user
-  has_many :sitter_selections
+  has_many :git_sitter_selections
 
 end

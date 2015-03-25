@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313152915) do
+ActiveRecord::Schema.define(version: 20150325151406) do
+
+  create_table "git_sitter_selections", force: :cascade do |t|
+    t.integer  "git_sitter_id"
+    t.integer  "sitter_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "git_sitters", force: :cascade do |t|
     t.datetime "when"

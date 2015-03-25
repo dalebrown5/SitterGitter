@@ -2,8 +2,6 @@
 <div class="row">
   <div class="col-md-6">
 
-    <p id="notice"><%= notice %></p>
-
     <p>
       <strong>When:</strong>
       <%= @git_sitter.when %>
@@ -21,6 +19,6 @@
      
     <br> 
     <%= link_to 'Back', git_sitters_path, class: 'btn btn-primary' %>
-    <%= link_to 'Remove', @git_sitter, class: 'btn btn-danger', method: :delete %>
+    <%= link_to 'Delete', @git_sitter, class: 'btn btn-danger', method: :delete %>
   </div>
 </div>

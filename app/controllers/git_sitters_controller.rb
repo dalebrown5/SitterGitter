@@ -30,11 +30,15 @@ class GitSittersController < ApplicationController
     @git_sitter = GitSitter.new(git_sitter_params)
     @git_sitter.user = current_user
 
+    @git_sitter.save!
+
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     auth_token = ENV['TWILIO_AUTH_TOKEN']
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     current_user.selected_sitters.each do |sitter|
+
+      sitter.git_sitter_selections.create(git_sitter: @git_sitter)
 
       @client.messages.create(
         from: '385-244-2825',
@@ -56,7 +60,7 @@ https://db5-sittergitter.herokuapp.com/"
     end
 
     respond_to do |format|
-      if @git_sitter.save
+      if @git_sitter.id
         format.html { redirect_to git_sitters_url }
         format.json { render :show, status: :created, location: @git_sitter }
       else
