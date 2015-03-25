@@ -45,7 +45,6 @@ class GitSittersController < ApplicationController
         to: sitter.phone,
         body: "-
 Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for about #{@git_sitter.how_long} hours.
-
 #{@git_sitter.message}
 
 Please text or call back to #{@git_sitter.user.phone} and let me know if you would be available.
@@ -89,7 +88,7 @@ https://db5-sittergitter.herokuapp.com/"
   def destroy
     @git_sitter.destroy
     respond_to do |format|
-      format.html { redirect_to git_sitters_url, notice: 'Git sitter was successfully destroyed.' }
+      format.html { redirect_to git_sitters_url }
       format.json { head :no_content }
     end
   end
