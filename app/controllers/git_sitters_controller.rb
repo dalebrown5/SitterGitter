@@ -13,6 +13,8 @@ class GitSittersController < ApplicationController
   # GET /git_sitters/1
   # GET /git_sitters/1.json
   def show
+    # sitter = current_user.selected_sitters
+    # @recipients = sitter.git_sitter_selections.find(git_sitter: @git_sitter)
   end
 
   # GET /git_sitters/new
@@ -35,6 +37,18 @@ class GitSittersController < ApplicationController
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     auth_token = ENV['TWILIO_AUTH_TOKEN']
 
+    @message = "-
+Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for about #{@git_sitter.how_long} hours.
+#{@git_sitter.message}
+
+If you're available please text or call back to #{@git_sitter.user.phone} (don't respond to this text).
+
+Thank you!
+
+Powered by Sitter Gitter 
+https://db5-sittergitter.herokuapp.com/"
+
+
     @client = Twilio::REST::Client.new account_sid, auth_token
     current_user.selected_sitters.each do |sitter|
 
@@ -43,17 +57,7 @@ class GitSittersController < ApplicationController
       @client.messages.create(
         from: '385-244-2825',
         to: sitter.phone,
-        body: "-
-Hi this is #{@git_sitter.user.name}. I'm in need of a babysitter, #{@git_sitter.when}, for about #{@git_sitter.how_long} hours.
-#{@git_sitter.message}
-
-Please text or call back to #{@git_sitter.user.phone} and let me know if you would be available.
-
-Thank you!
-
-Powered by Sitter Gitter 
-https://db5-sittergitter.herokuapp.com/"
-
+        body: @message
       )
 
     end

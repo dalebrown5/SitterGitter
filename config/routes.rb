@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :git_sitters
 
   devise_for :users
+    resources :users, only: [:update]
    
   resources :list_items
 
